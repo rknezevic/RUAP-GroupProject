@@ -1,0 +1,4 @@
+.backgroundStyle {
+    background-image: url('/public/gradientBg.png'); 
+    background-size: cover; 
+  }
