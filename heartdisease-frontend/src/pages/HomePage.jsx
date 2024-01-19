@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 import "../styles/background.css";
 import "../styles/home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-export const HomePage = () => {
-  //const [state, useState] = useState();
 
+export const HomePage = () => {
   return (
     <div className="container-fluid bg-image backgroundStyle">
       <Navbar />
