@@ -1,45 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 //import * as firebase from 'firebase/app';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { HomePage}  from './pages/HomePage';
-import { TestPage } from './pages/TestPage';
-import {HistoryPage} from "./pages/HistoryPage";
-import { AboutUsPage } from './pages/AboutUsPage';
+import { HomePage } from "./pages/HomePage";
+import { TestPage } from "./pages/TestPage";
+import { HistoryPage } from "./pages/HistoryPage";
+import { AboutUsPage } from "./pages/AboutUsPage";
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<HomePage />
+    path: "/",
+    element: <HomePage />,
   },
   {
-    path:"/login",
-    element:<LoginPage />,
+    path: "/login",
+    element: <LoginPage />,
   },
   {
-    path:"/register",
-    element:<RegisterPage />,
+    path: "/register",
+    element: <RegisterPage />,
   },
   {
-    path:"/test",
-    element: <TestPage/>,
+    path: "/test",
+    element: <TestPage />,
   },
   {
-   path:"/history",
-   element: <HistoryPage/> 
+    path: "/history",
+    element: <HistoryPage />,
   },
   {
-    path:"/about-us",
-    element: <AboutUsPage/>
-  }
-  
-])
-
+    path: "/about-us",
+    element: <AboutUsPage />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

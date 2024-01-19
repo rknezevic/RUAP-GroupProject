@@ -1,0 +1,39 @@
+.bg-test {
+  background-color: #4c8cb4;
+}
+
+.form-q {
+  display: flex;
+  align-items: center;
+}
+
+.label-q {
+  width: 80%;
+  margin-right: 15%;
+  margin-bottom: 0;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+}
+
+.input-q {
+  margin-top: 20px;
+}
+
+.form-r {
+  background: rgba(61, 52, 203, 0.7);
+  border-radius: 3%;
+  padding: 15px;
+}
+
+.chart-container {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.chart-visible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  margin-right: 10% !important;
+}

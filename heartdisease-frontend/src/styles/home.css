@@ -1,20 +1,28 @@
 .backgroundStyle {
-    background-image: url('/public/gradientBg.png'); 
-    background-size: cover; 
-  }
-  .navbar {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .navbar:hover {
-    transform: translateX(250px); /* Pomiči navbar za određenu širinu */
-  }
-  
-  .text-center {
-    transition: margin-left 0.3s ease-in-out;
-  }
-  
-  .navbar:hover ~ .row .text-center {
-    margin-left: 250px; /* Pomiči tekst udesno kada se navbar hoveruje */
-  }
-  
+  background-image: url("/public/gradientBg.png");
+  background-size: cover;
+}
+.navbar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar:hover {
+  transform: translateX(250px); /* Pomiči navbar za određenu širinu */
+}
+
+.text-center {
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.navbar:hover ~ .row .text-center {
+  margin-left: 250px; /* Pomiči tekst udesno kada se navbar hoveruje */
+}
+
+.img {
+  scale: 0.8;
+  transition: transform 0.3s ease;
+}
+.img:hover {
+  transform: scale(1.1); /* Adjust the scale factor as needed */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
