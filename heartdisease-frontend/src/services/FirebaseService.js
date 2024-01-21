@@ -12,7 +12,7 @@ class FirebaseService {
   }
 
   async getCurrentUser() {
-    const user = await firebase.auth().currentUser;
+    const user = firebase.auth().currentUser;
     return user;
   }
 
@@ -23,6 +23,37 @@ class FirebaseService {
       console.log("Document written with ID: ", docRef.id);
     } catch (error) {
       console.error("Error adding document: ", error);
+    }
+  }
+
+  async getUserData(userId) {
+    try{
+      const db = firebase.firestore();
+      const data = await db.collection("predictions").where("UserId", "==", userId).orderBy("DateCreated", "desc").get();
+
+      const userData = data.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      }));
+        
+      return userData;
+
+    }catch(error){
+      console.error("Error fetching documents: ", error);
+    }
+  }
+
+  async getDocumentById(documentId) {
+    try{
+      const db = firebase.firestore();
+
+      const documentRef =  db.collection("predictions").doc(documentId)
+      const document = await documentRef.get();
+      const documentData = document.data();
+
+      return documentData;
+    }catch(error){
+      console.log("Error retrieving document", error);
     }
   }
 }

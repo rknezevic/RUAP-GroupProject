@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import "../styles/background.css";
+import { serverTimestamp } from 'firebase/firestore';
 import "../styles/test.css";
 import FirebaseService from "../services/FirebaseService";
 import HeartAttackChart from "../components/HeartAttackChart";
@@ -104,6 +105,8 @@ export const TestPage = () => {
       PhysHlth: physHlth,
       Smoker: smoker,
       Stroke: stroke,
+      DateCreated: serverTimestamp(), 
+
     };
 
     await firebaseService.savePrediction(predictionData);
@@ -150,7 +153,6 @@ export const TestPage = () => {
           className="text-center"
           style={{
             marginTop: "1%",
-
             marginBottom: "2%",
             fontSize: "1.5em",
             fontWeight: "550",

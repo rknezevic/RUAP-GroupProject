@@ -10,6 +10,8 @@ import {
     faFileWaveform, 
     faHeartPulse,
 } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
 
 export const Navbar = () => {
     const navigate = useNavigate();
@@ -55,7 +57,7 @@ export const Navbar = () => {
                 <li className="nav-item">
                     <Link className="link-style" to="/about-us">
                         <span className="icon">
-                            <FontAwesomeIcon className="fontawesome" />
+                            <FontAwesomeIcon className="fontawesome" icon={faGithub} />
                         </span>
                         <span className="nav-text"> About us</span>
                     </Link>

@@ -4,13 +4,13 @@ import "./index.css";
 //import * as firebase from 'firebase/app';
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { HomePage } from "./pages/HomePage";
 import { TestPage } from "./pages/TestPage";
 import { HistoryPage } from "./pages/HistoryPage";
 import { AboutUsPage } from "./pages/AboutUsPage";
+import { TestDetails } from "./pages/TestDetails";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +37,10 @@ const router = createBrowserRouter([
     path: "/about-us",
     element: <AboutUsPage />,
   },
+  {
+    path: "/test-details/:id",
+    element: <TestDetails/>
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
