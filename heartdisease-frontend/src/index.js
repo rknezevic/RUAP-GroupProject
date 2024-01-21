@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-//import * as firebase from 'firebase/app';
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
@@ -9,13 +8,17 @@ import RegisterPage from "./pages/RegisterPage";
 import { HomePage } from "./pages/HomePage";
 import { TestPage } from "./pages/TestPage";
 import { HistoryPage } from "./pages/HistoryPage";
+<<<<<<< HEAD
 import { AboutUsPage } from "./pages/AboutUsPage";
 import { TestDetails } from "./pages/TestDetails";
+=======
+import RequireAuthPage from "./pages/RequireAuthPage";
+>>>>>>> 6f4b312408f2eb68c203069ac971d1c3a9ea1a4a
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    element: <HomePage></HomePage>,
   },
   {
     path: "/login",
@@ -27,15 +30,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/test",
-    element: <TestPage />,
+    element: <RequireAuthPage page={<TestPage></TestPage>}></RequireAuthPage>,
   },
   {
     path: "/history",
-    element: <HistoryPage />,
-  },
-  {
-    path: "/about-us",
-    element: <AboutUsPage />,
+    element: (
+      <RequireAuthPage page={<HistoryPage></HistoryPage>}></RequireAuthPage>
+    ),
   },
   {
     path: "/test-details/:id",
@@ -49,7 +50,5 @@ root.render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
