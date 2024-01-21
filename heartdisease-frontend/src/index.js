@@ -8,12 +8,8 @@ import RegisterPage from "./pages/RegisterPage";
 import { HomePage } from "./pages/HomePage";
 import { TestPage } from "./pages/TestPage";
 import { HistoryPage } from "./pages/HistoryPage";
-<<<<<<< HEAD
-import { AboutUsPage } from "./pages/AboutUsPage";
 import { TestDetails } from "./pages/TestDetails";
-=======
 import RequireAuthPage from "./pages/RequireAuthPage";
->>>>>>> 6f4b312408f2eb68c203069ac971d1c3a9ea1a4a
 
 const router = createBrowserRouter([
   {

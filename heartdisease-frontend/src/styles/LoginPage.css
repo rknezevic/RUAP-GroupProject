@@ -4,4 +4,9 @@
     background-size: cover;
     background-position: center;
     min-height: 100vh; 
+    padding: 20px;
+}
+
+.card-body {
+    padding: 10px;
 }

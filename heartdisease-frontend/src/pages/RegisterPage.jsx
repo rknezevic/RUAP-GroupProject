@@ -28,6 +28,11 @@ export default function Register() {
       console.error("Lozinke se ne podudaraju!");
       return;
     }
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      alert("Fields can't be empty. Please fill it in.");
+      return;
+    }
+    
     try {
       await createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
@@ -43,10 +48,6 @@ export default function Register() {
 */
         }
       );
-
-      console.log("aloooo");
-      //console.log(result);
-      console.log("Registracija uspješna:");
       navigate("/login");
     } catch (error) {
       console.error("Pogreška prilikom registracije:", error);
@@ -54,61 +55,61 @@ export default function Register() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Register</h2>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
+      <div className="container mt-5">
+        <h2>Register</h2>
+        <div className="form-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
+        <div className="form-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+        <div className="form-group mb-3">
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="form-group mb-3">
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        <button
+          className="btn btn-primary"
+          onClick={() =>
+            handleRegister(firstName, lastName, email, password, confirmPassword)
+          }
+        >
+          Register
+        </button>
       </div>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="email"
-          className="form-control"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-      </div>
-      <button
-        className="btn btn-primary"
-        onClick={() =>
-          handleRegister(firstName, lastName, email, password, confirmPassword)
-        }
-      >
-        Register
-      </button>
-    </div>
   );
 }
