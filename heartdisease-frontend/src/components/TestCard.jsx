@@ -11,7 +11,7 @@ export const Card = ({data, onClick}) => {
     return (
         <div className='card-container' onClick={onClick}>
             <div className='title' ><h4>Test made {date}</h4> </div>
-            <div className='paragraph'><p> For more detailed information click anywhere on the card!</p> </div>       
+            <div className='paragraph'><p> Your likelihood of experiencing a heart attack is: <strong>{data.data.HeartDiseaseOrAttackChance}</strong></p> </div>       
         </div>
     )
 }
