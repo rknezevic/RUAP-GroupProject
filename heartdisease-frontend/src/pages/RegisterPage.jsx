@@ -1,51 +1,34 @@
 import React, { useState } from "react";
 import { app } from "../App";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Register() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  //const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
-  const handleRegister = async (
-    firstName,
-    lastName,
-    email,
-    password,
-    confirmPassword
-  ) => {
-    if (password !== confirmPassword) {
-      console.error("Lozinke se ne podudaraju!");
-      return;
-    }
-    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+  const handleRegister = async (e, email, password, confirmPassword) => {
+    e.preventDefault();
+    if (!email || !password || !confirmPassword) {
       alert("Fields can't be empty. Please fill it in.");
       return;
     }
-    
+    if (password !== confirmPassword) {
+      alert("Passwords doesn't match!");
+      return;
+    }
+
     try {
       await createUserWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
           const user = userCredential.user;
           navigate("/login");
-
-          /*
-        firebase.firestore().collection('users').doc(user.uid).set({
-          firstName,
-          lastName,
-          email,
-        });
-*/
         }
       );
       navigate("/login");
@@ -55,61 +38,57 @@ export default function Register() {
   };
 
   return (
+    <div className="login-container backgroundStyle">
       <div className="container mt-5">
-        <h2>Register</h2>
-        <div className="form-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <h2 className="card-title text-center mb-4">Register</h2>
+                <form>
+                  <div className="form-group mb-3 input-q">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group mb-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group mb-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Confirm Password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group text-center mb-2">
+                    <button
+                      className="btn btn-primary btn-block"
+                      onClick={(e) =>
+                        handleRegister(e, email, password, confirmPassword)
+                      }
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="form-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="form-group mb-3">
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <button
-          className="btn btn-primary"
-          onClick={() =>
-            handleRegister(firstName, lastName, email, password, confirmPassword)
-          }
-        >
-          Register
-        </button>
       </div>
+    </div>
   );
 }

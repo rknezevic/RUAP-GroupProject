@@ -5,6 +5,7 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/LoginPage.css";
+import "../styles/background.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,12 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
+
+      if (!email || !password) {
+        alert("Fields can't be empty. Please fill it in.");
+        return;
+      }
+
       await signInWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
           const user = userCredential.user;
@@ -27,50 +34,50 @@ export default function LoginPage() {
   };
 
   return (
-      <div className="login-container">
-        <div className="container mt-5">
-          <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="card">
-                <div className="card-body">
-                  <h2 className="card-title text-center mb-4">Login</h2>
-                  <form>
-                    <div className="form-group mb-3">
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                    <div className="form-group mb-3">
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <button
-                        className="btn btn-primary btn-block"
-                        onClick={(e) => handleLogin(e)}
-                      >
-                        Login
-                      </button>
-                    </div>
-                  </form>
-                  <p className="text-center">
-                    Don't have an account?{" "}
-                    <Link to="/register"> Register here!</Link>
-                  </p>
-                </div>
+    <div className="login-container backgroundStyle">
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <h2 className="card-title text-center mb-4">Login</h2>
+                <form>
+                  <div className="form-group mb-3 input-q">
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group mb-3">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group text-center mb-2">
+                    <button
+                      className="btn btn-primary btn-block"
+                      onClick={(e) => handleLogin(e)}
+                    >
+                      Login
+                    </button>
+                  </div>
+                </form>
+                <p className="text-center">
+                  Don't have an account?{" "}
+                  <Link to="/register"> Register here!</Link>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 }

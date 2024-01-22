@@ -32,8 +32,8 @@ export const HomePage = () => {
             </button>
           </Link>
         </div>
-        <div className="col-md-5 text-left style={{ marginLeft: '-70px' }}">
-          <Link to="\test">
+        <div className="col-md-5 text-left" style={{ marginLeft: "-70px" }}>
+          <Link to="/test">
             <img
               src="/Doktor.png"
               alt="Tvoja slika"
