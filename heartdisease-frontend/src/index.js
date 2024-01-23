@@ -36,8 +36,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/test-details/:id",
-    element: <TestDetails/>
-  }
+    element: (
+      <RequireAuthPage page={<TestDetails></TestDetails>}></RequireAuthPage>
+    ),
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import "../styles/background.css";
-import { serverTimestamp } from 'firebase/firestore';
+import { serverTimestamp } from "firebase/firestore";
 import "../styles/test.css";
 import FirebaseService from "../services/FirebaseService";
 import HeartAttackChart from "../components/HeartAttackChart";
@@ -105,8 +105,7 @@ export const TestPage = () => {
       PhysHlth: physHlth,
       Smoker: smoker,
       Stroke: stroke,
-      DateCreated: serverTimestamp(), 
-
+      DateCreated: serverTimestamp(),
     };
 
     await firebaseService.savePrediction(predictionData);
@@ -374,7 +373,7 @@ export const TestPage = () => {
       </div>
       <div
         className={`text-center chart-container ${chartClass}`}
-        style={{ marginRight: "0%", maxWidth: "25%" }}
+        style={{ marginRight: "8%", maxWidth: "20%" }}
       >
         {isChartVisible && (
           <HeartAttackChart

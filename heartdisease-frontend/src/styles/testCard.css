@@ -1,51 +1,47 @@
 .cards-container {
-    display: flex;
-    gap: 15px;
-    margin-left: 30px;
-    flex-wrap: wrap; 
-    justify-content: space-between;
-    margin-right: 60px;
+  display: flex;
+  gap: 15px;
+  margin-left: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 60px;
 }
-.card-container{
-    width: 300px;
-    margin-bottom: 40px;
-    overflow: hidden;
-    box-shadow: 0px 0px 15px -5px;
-    transition: 0.3s;
-    animation: ease-in;
-    background-color: #0f91e2;
-    border-radius: 20px;
+.card-container {
+  width: 300px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px -5px;
+  transition: 0.3s;
+  animation: ease-in;
+  background-color: #0f91e2;
+  border-radius: 20px;
 }
 .card-container:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 15px 0px;
 }
 .card-container:first-child {
-    margin-left: 120px;  /* Odmak prvog elementa */
+  margin-left: 120px; /* Odmak prvog elementa */
 }
 .card-container:nth-child(5n) {
-    margin-left: 120px;  /* Odmak svakog četvrtog elementa */
+  margin-left: 120px; /* Odmak svakog četvrtog elementa */
 }
 
-.title{
-    text-align: center;
-    padding-right: 7px;
-    padding-left: 7px;
-    padding-top: 7px;
+.title {
+  text-align: center;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 7px;
 }
-.paragraph{
-    padding: 5px;
-    text-align: center;
-
+.paragraph {
+  padding: 5px;
+  text-align: center;
 }
 .title-history {
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-    margin-top: -200px;
-    text-align: left;
-    font-size: 30px; 
-    color: #ffffff;
-    font-weight: bold;
-    text-align: left;
-    margin-left: -970px;
-  }
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  margin-top: -200px;
+  font-size: 30px;
+  color: #ffffff;
+  font-weight: bold;
+}

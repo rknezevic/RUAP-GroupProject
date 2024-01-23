@@ -81,12 +81,13 @@ const HeartAttackChart = ({ heartAttackPredict }) => {
   return (
     <>
       <div className="">
-        {heartRiskGroup == 0 && (
+        {heartRiskGroup === 0 && (
           <p
             style={{
               fontSize: "1.1em",
               marginLeft: "-15%",
               marginRight: "-15%",
+              textAlign: "center",
             }}
           >
             <strong>Congratulations!</strong> <br></br>Your calculated{" "}
@@ -96,12 +97,13 @@ const HeartAttackChart = ({ heartAttackPredict }) => {
             your heart health.
           </p>
         )}
-        {heartRiskGroup == 1 && (
+        {heartRiskGroup === 1 && (
           <p
             style={{
               fontSize: "1.1em",
               marginLeft: "-15%",
               marginRight: "-15%",
+              textAlign: "center",
             }}
           >
             Your calculated risk falls within the{" "}
@@ -111,12 +113,13 @@ const HeartAttackChart = ({ heartAttackPredict }) => {
             staying vigilant about regular health check-ups.
           </p>
         )}
-        {heartRiskGroup == 2 && (
+        {heartRiskGroup === 2 && (
           <p
             style={{
               fontSize: "1.1em",
               marginLeft: "-15%",
               marginRight: "-15%",
+              textAlign: "center",
             }}
           >
             Your calculated risk is in the{" "}
@@ -127,12 +130,13 @@ const HeartAttackChart = ({ heartAttackPredict }) => {
             plan.
           </p>
         )}
-        {heartRiskGroup == 3 && (
+        {heartRiskGroup === 3 && (
           <p
             style={{
               fontSize: "1.1em",
               marginLeft: "-15%",
               marginRight: "-15%",
+              textAlign: "center",
             }}
           >
             <strong>Your calculated risk is above 30%</strong>.<br></br> It
